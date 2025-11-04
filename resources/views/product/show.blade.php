@@ -25,17 +25,17 @@
     </style>
 </head>
 <body>
-    <h1>Nom du produit</h1>
+    <h1>{{$product->name}}</h1>
     
     <div class="product-info">
-        <p><strong>Prix:</strong> 29.99€</p>
-        <p><strong>Stock:</strong> 15</p>
-        <p><strong>Catégorie:</strong> Électronique</p>
+        <p><strong>Prix:</strong> {{$product->price}} €</p>
+        <p><strong>Stock:</strong> {{$product->stock}}</p>
+        <p><strong>Catégorie:</strong> {{$product->category}}</p>
         <p><strong>Description:</strong></p>
-        <p>Description du produit ici</p>
+        <p >{{$product->description}}</p>
     </div>
     
-    <a href="#">Retour à la liste</a>
+    <a href="{{route('products.index')}}">Retour à la liste</a>
     
 </body>
 </html>

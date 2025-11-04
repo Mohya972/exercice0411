@@ -55,6 +55,7 @@
     
     <form action="#" method="POST">
         <!-- TODO: Ajouter un token CSRF -->
+        @csrf
         
         <label for="name">Nom</label>
         <input type="text" id="name" name="name" placeholder="Entrez le nom du produit">

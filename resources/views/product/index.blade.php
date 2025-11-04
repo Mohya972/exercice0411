@@ -45,7 +45,7 @@
 <body>
     <h1>Liste des Produits</h1>
     
-    <a href="#" class="btn">Ajouter un produit</a>
+    <a href="{{route('products.create')}}" class="btn">Ajouter un produit</a>
     
     <table>
         <thead>
@@ -60,16 +60,19 @@
         </thead>
         <tbody>
             <!-- TODO: Ajouter une boucle ici pour afficher chaque produit -->
-            <tr>
-                <td>1</td>
-                <td>Nom du produit</td>
-                <td>29.99€</td>
-                <td>15</td>
-                <td>Électronique</td>
-                <td>
-                    <a href="#">Voir</a>
-                </td>
-            </tr>
+            @foreach ($products as $product)
+                <tr>
+                    <td>{{$product->id}}</td>
+                    <td>{{$product->name}}</td>
+                    <td>{{$product->price}} €</td>
+                    <td>{{$product->stock}}</td>
+                    <td>{{$product->category}}</td>
+                    <td>
+                        <a href="{{route('products.show', $product)}}">Voir</a>
+                    </td>
+                </tr>
+            @endforeach
+            
         </tbody>
     </table>
 </body>

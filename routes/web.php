@@ -9,7 +9,7 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('welcome');
 });
- 
+
 
 // ===== POSTS =====
 // Affiche la liste de tous les posts
@@ -29,7 +29,7 @@ Route::get('/products/create', [ProductController::class, 'create'])->name('prod
 // Enregistre le nouveau produit en base de données
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 // Affiche les détails d'un produit spécifique
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 
 // ===== CONTACTS =====
 // Affiche la liste de tous les contacts

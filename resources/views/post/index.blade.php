@@ -59,15 +59,18 @@
         </thead>
         <tbody>
             <!-- TODO: Ajouter une boucle ici pour afficher chaque post -->
-            <tr>
-                <td>1</td>
-                <td>Titre du post</td>
-                <td>Nom de l'auteur</td>
-                <td>04/11/2025</td>
+            @foreach ($posts as $post)
+                <tr>
+                <td> {{$post->id}} </td>
+                <td> {{$post->title}} </td>
+                <td> {{$post->author}} </td>
+                <td> {{$post->created_at->format('d/m/Y')}} </td>
                 <td>
                     <a href="#">Voir</a>
                 </td>
             </tr>
+            @endforeach
+            
         </tbody>
     </table>
 </body>

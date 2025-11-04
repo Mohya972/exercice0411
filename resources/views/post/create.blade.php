@@ -55,13 +55,17 @@
     
     <form action="#" method="POST">
         <!-- TODO: Ajouter un token CSRF -->
+        @csrf
         
         <label for="title">Titre</label>
         <input type="text" id="title" name="title" placeholder="Entrez le titre">
         
         <!-- TODO: Ajouter un input pour l'auteur -->
+        <label for="author">Auteur</label>
+        <input type="text" id="author" name="author" placeholder="Entrez le nom de l'auteur">
         
         <!-- TODO: Ajouter un textarea pour le contenu -->
+        <textarea id="content" name="content" placeholder="Entrez le contenu du post"></textarea>
         
         <button type="submit">Ajouter</button>
     </form>

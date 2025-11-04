@@ -53,7 +53,7 @@
 <body>
     <h1>Ajouter un Post</h1>
     
-    <form action="#" method="POST">
+    <form action="{{route('posts.store')}}" method="POST">
         <!-- TODO: Ajouter un token CSRF -->
         @csrf
         
@@ -70,7 +70,7 @@
         <button type="submit">Ajouter</button>
     </form>
     
-    <a href="#">Retour à la liste</a>
+    <a href="{{route('posts.index')}}">Retour à la liste</a>
     
 </body>
 </html>

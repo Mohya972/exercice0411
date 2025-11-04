@@ -23,7 +23,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        // Afficher le formulaire de création d'un post
         return view('post.create') ;
     }
 
@@ -33,6 +33,13 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         //
+        $validated = $request->validated([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'author' => 'required|string|max:100',  
+        ]) ;
+        $post = Post::create($validated) ;
+        return redirect()->route('posts.show', $post)->with('success', 'Post créé avec succès !') ;
     }
 
     /**
@@ -41,7 +48,8 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
-        return view('post.show') ;
+        
+        return view('post.show', compact('post')) ;
     }
 
     /**

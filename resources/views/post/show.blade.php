@@ -25,17 +25,17 @@
     </style>
 </head>
 <body>
-    <h1>Titre du post</h1>
+    <h1> {{$post->title}} </h1>
     
-    <p><strong>Auteur:</strong> Nom de l'auteur</p>
+    <p><strong>Auteur:</strong> {{$post->author}} </p>
     
-    <p><strong>Date:</strong> 04/11/2025 14:30</p>
+    <p><strong>Date:</strong> {{$post->created_at->format('d/m/Y h:m')}} </p>
     
     <div class="content">
         <p>Contenu du post ici</p>
     </div>
     
-    <a href="#">Retour à la liste</a>
+    <a href="{{route('posts.index')}}">Retour à la liste</a>
     
 </body>
 </html>

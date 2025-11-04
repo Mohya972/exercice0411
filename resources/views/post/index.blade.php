@@ -45,7 +45,7 @@
 <body>
     <h1>Liste des Posts</h1>
     
-    <a href="#" class="btn">Ajouter un post</a>
+    <a href="{{route('posts.create')}}" class="btn">Ajouter un post</a>
     
     <table>
         <thead>
@@ -66,7 +66,7 @@
                 <td> {{$post->author}} </td>
                 <td> {{$post->created_at->format('d/m/Y')}} </td>
                 <td>
-                    <a href="#">Voir</a>
+                    <a href="{{route('posts.show',$post)}}">Voir</a>
                 </td>
             </tr>
             @endforeach

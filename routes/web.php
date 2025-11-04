@@ -19,7 +19,7 @@ Route::get('/posts/create', [PostController::class, 'create'])->name('posts.crea
 // Enregistre le nouveau post en base de données
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 // Affiche les détails d'un post spécifique
-Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 // ===== PRODUCTS =====
 // Affiche la liste de tous les produits

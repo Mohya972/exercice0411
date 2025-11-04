@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -14,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         // récupèrer tous les posts et les afficher
-        $posts = Post::all() ;
+        $posts = Post::orderBy('id','desc')->paginate(10) ;
         return view('post.index', compact('posts')) ;
     }
 
@@ -30,16 +31,16 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePostRequest $request)
+    public function store(Request $request)
     {
         //
-        $validated = $request->validated([
+        $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'author' => 'required|string|max:100',  
         ]) ;
         $post = Post::create($validated) ;
-        return redirect()->route('posts.show', $post)->with('success', 'Post créé avec succès !') ;
+        return redirect()->route('post.index', $post)->with('success', 'Post créé avec succès !') ;
     }
 
     /**

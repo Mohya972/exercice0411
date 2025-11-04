@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -14,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::all() ;
+        $products = Product::orderBy('id', 'desc')->paginate(10) ;
         return view('product.index', compact('products')) ;
     }
 
@@ -30,9 +31,18 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductRequest $request)
+    public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',          
+            'price' => 'required|numeric',
+            'stock' => 'required|integer',
+            'category' => 'required|string|max:100',  
+        ]) ;
+        $product = Product::create($validated) ;
+        return redirect()->route('products.index', $product)->with('success', 'Produit enregistré avec succès !') ;
     }
 
     /**

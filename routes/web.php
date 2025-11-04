@@ -49,4 +49,4 @@ Route::get('/books/create', [BookController::class, 'create'])->name('books.crea
 // Enregistre le nouveau livre en base de données
 Route::post('/books', [BookController::class, 'store'])->name('books.store');
 // Affiche les détails d'un livre spécifique
-Route::get('/books/{id}', [BookController::class, 'show'])->name('books.show');
+Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show');

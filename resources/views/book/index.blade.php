@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des Posts</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,9 +44,9 @@
     </style>
 </head>
 <body>
-    <h1>Liste des Posts</h1>
+    <h1>Liste des Ouvrages</h1>
     
-    <a href="#" class="btn">Ajouter un post</a>
+    <a href="{{route('books.create')}}" class="btn">Ajouter un livre</a>
     
     <table>
         <thead>
@@ -59,15 +60,18 @@
         </thead>
         <tbody>
             <!-- TODO: Ajouter une boucle ici pour afficher chaque post -->
-            <tr>
-                <td>1</td>
-                <td>Titre du post</td>
-                <td>Nom de l'auteur</td>
-                <td>04/11/2025</td>
+            @foreach ($books as $book)
+                <tr>
+                <td>{{$book->id}}</td>
+                <td>{{$book->title}}</td>
+                <td>{{$book->author}}</td>
+                <td>{{$book->year}}</td>
                 <td>
-                    <a href="#">Voir</a>
+                    <a href="{{route('books.show',$book)}}">Voir</a>
                 </td>
             </tr>
+            @endforeach
+            {{$books->links()}}
         </tbody>
     </table>
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un Post</title>
+    <title>Ajouter un Livre</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -51,22 +51,32 @@
     </style>
 </head>
 <body>
-    <h1>Ajouter un Post</h1>
+    <h1>Ajouter un Livre</h1>
     
-    <form action="#" method="POST">
+    <form action="{{route('books.store')}}" method="POST">
         <!-- TODO: Ajouter un token CSRF -->
+        @csrf
         
         <label for="title">Titre</label>
         <input type="text" id="title" name="title" placeholder="Entrez le titre">
         
         <!-- TODO: Ajouter un input pour l'auteur -->
+        <label for="author">Auteur</label>
+        <input type="text" id="author" name="author" placeholder="Entrez l'auteur">
+
+        <label for="isbn">ISBN</label>
+        <input type="text" id="isbn" name="isbn" placeholder="Entrez l'ISBN">
+
+        <label for="year">Edité en</label>
+        <input type="number" id="year" name="year" placeholder="Entrez l'année d'édition">  
         
         <!-- TODO: Ajouter un textarea pour le contenu -->
+        <textarea id="content" name="content" placeholder="Entrez votre résumé"></textarea>
         
         <button type="submit">Ajouter</button>
     </form>
     
-    <a href="#">Retour à la liste</a>
+    <a href="{{route('books.index')}}">Retour à la liste</a>
     
 </body>
 </html>

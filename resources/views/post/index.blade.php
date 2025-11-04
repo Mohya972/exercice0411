@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des Posts</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -70,7 +71,7 @@
                 </td>
             </tr>
             @endforeach
-            
+            {{$posts->links()}}
         </tbody>
     </table>
 </body>

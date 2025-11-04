@@ -25,17 +25,18 @@
     </style>
 </head>
 <body>
-    <h1>Titre du post</h1>
+    <h1>{{$book->title}}</h1>
     
-    <p><strong>Auteur:</strong> Nom de l'auteur</p>
+    <p><strong>Auteur:</strong> {{$book->author}}</p>
+    <p><strong> ISBN : </strong> {{$book->isbn}} </p>
     
-    <p><strong>Date:</strong> 04/11/2025 14:30</p>
+    <p><strong>Date:</strong> {{$book->year}}</p>
     
     <div class="content">
-        <p>Contenu du post ici</p>
+        <p>{{$book->publisher}}</p>
     </div>
     
-    <a href="#">Retour à la liste</a>
+    <a href="{{route('books.index')}}">Retour à la liste</a>
     
 </body>
 </html>
